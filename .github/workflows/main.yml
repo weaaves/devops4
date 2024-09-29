@@ -28,5 +28,5 @@ jobs:
 
       - name: Deploy to Heroku
         run: |
-          heroku container:push web --app devops4
-          heroku container:release web --app devops4
+          heroku container:push web --app devops-app
+          heroku container:release web --app devops-app
