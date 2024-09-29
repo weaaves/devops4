@@ -15,7 +15,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/my-app .
+          docker build -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/us.gcr.io .
 
       - name: Authenticate with Google Cloud
         env:
@@ -28,4 +28,4 @@ jobs:
       - name: Push Docker image to Google Cloud
         run: |
           gcloud auth configure-docker
-          docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/my-app
+          docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/us.gcr.io
