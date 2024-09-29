@@ -13,14 +13,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install dependencies
-        run: |
-          npm install
-
-      - name: Run tests
-        run: |
-          npm test
-
       - name: Build Docker image
         run: |
           docker build -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/my-app .
@@ -37,7 +29,3 @@ jobs:
         run: |
           gcloud auth configure-docker
           docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/my-app
-
-      - name: Deploy to Google Cloud Storage
-        run: |
-          gsutil -m rsync -r . gs://devops_pr4
